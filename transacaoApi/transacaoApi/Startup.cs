@@ -9,6 +9,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using transacaoApi.Interfaces;
+using transacaoApi.Services;
 
 namespace transacaoApi
 {
@@ -24,7 +26,13 @@ namespace transacaoApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "Meu Swagger", Version = "v1" });
+            });
             services.AddControllers();
+
+            services.AddTransient<ITransacaoService, TransacaoService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -34,7 +42,11 @@ namespace transacaoApi
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseSwagger();
+            app.UseSwaggerUI(opt =>
+            {
+                opt.SwaggerEndpoint("/swagger/v1/swagger.json", "Meu Swagger V1");
+            });
             app.UseRouting();
 
             app.UseAuthorization();

@@ -1,7 +1,10 @@
-﻿using System;
+﻿
+using Domain.Models;
+using Domain.StateClasses;
+using System;
 using System.Threading.Tasks;
 using transacaoApi.Interfaces;
-using transacaoApi.Models;
+
 
 namespace transacaoApi.Services
 {
@@ -11,18 +14,25 @@ namespace transacaoApi.Services
         {
             Console.WriteLine("OI EstadoAndamento");
             //var usarioValido = await Task.FromResult(casss.BuscarUsario(transacao.IdUsuario));
+
+            //Aqui vai ter que ter um trycatch...
             var usuarioValido = await Task.FromResult(true);
 
             if (!usuarioValido)
             {
                 return 401;
             }
-            transacao.IdTransacao = Guid.NewGuid();
+
+            if (transacao.IdTransacaoRelacionada != null)
+            {
+                //Aqui também teria que ter um trycatch...
+                //Obter o valor da transacao original para inverter o valor
+            }
+
+            
             transacao.Estado = new EstadoIdentificado();
 
-            return transacao.ExecutarOperacao().Result;  
-            
-           
+            return transacao.ExecutarOperacao().Result;
         }
     }
 }

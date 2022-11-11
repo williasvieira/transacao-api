@@ -1,7 +1,8 @@
-﻿using System;
+﻿using Domain.Models;
+using Domain.StateClasses;
+using System;
 using System.Threading.Tasks;
 using transacaoApi.Interfaces;
-using transacaoApi.Models;
 
 namespace transacaoApi.Services
 {

@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
-using transacaoApi.Models;
+using Domain.Models;
 
-namespace transacaoApi.Interfaces
+namespace Domain.StateClasses
 {
     public interface IEstadosTransacao
     {

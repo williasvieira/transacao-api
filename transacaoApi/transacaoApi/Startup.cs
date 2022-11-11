@@ -1,3 +1,6 @@
+using Infra.DataCollections;
+using Infra.Interfaces;
+using Infra.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -33,6 +36,10 @@ namespace transacaoApi
             services.AddControllers();
 
             services.AddTransient<ITransacaoService, TransacaoService>();
+            services.AddTransient<ITransacaoInfraService, TransacaoMongoService>();
+            services.Configure<TransacaoDatabaseSettings>
+                (Configuration.GetSection("TransacaoDatabase"));
+            services.AddSingleton<TransacaoMongoService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

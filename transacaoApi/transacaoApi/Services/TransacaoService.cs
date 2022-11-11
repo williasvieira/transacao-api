@@ -1,8 +1,9 @@
-﻿using System;
+﻿using Domain.Models;
+using Domain.Models.Dtos;
+using System;
 using System.Threading.Tasks;
 using transacaoApi.Interfaces;
-using transacaoApi.Models;
-using transacaoApi.Models.Dtos;
+
 
 namespace transacaoApi.Services
 {
@@ -11,7 +12,7 @@ namespace transacaoApi.Services
         public Task<int> EfetuarTransacao(TransacaoDto dadosTransacao)
         {
             Transacao transacao = new Transacao(dadosTransacao.IdUsuario, dadosTransacao.Valor);
-
+            transacao.Estado = new EstadoAndamento();
              return transacao.ExecutarOperacao();
             
         }

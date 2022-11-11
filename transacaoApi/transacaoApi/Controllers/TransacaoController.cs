@@ -1,7 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Domain.Models.Dtos;
+using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using transacaoApi.Interfaces;
-using transacaoApi.Models.Dtos;
+
 
 namespace transacaoApi.Controllers
 {

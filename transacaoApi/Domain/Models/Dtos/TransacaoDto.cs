@@ -1,5 +1,5 @@
 ﻿
-namespace transacaoApi.Models.Dtos
+namespace Domain.Models.Dtos
 {
     public class TransacaoDto 
     {

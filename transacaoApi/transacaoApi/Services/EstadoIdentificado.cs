@@ -1,18 +1,37 @@
-﻿using System;
+﻿using Domain.Models;
+using Domain.StateClasses;
+using Infra.Interfaces;
+using Infra.Services;
+using System;
 using System.Threading.Tasks;
 using transacaoApi.Interfaces;
-using transacaoApi.Models;
+
 
 namespace transacaoApi.Services
 {
     public class EstadoIdentificado : IEstadosTransacao
     {
+        private readonly TransacaoMongoService TransacaoInfraService = new TransacaoMongoService();
+
+       
+
         public Task<int> ExecutarOperacao(Transacao transacao)
         {
+            transacao.IdTransacao = Guid.NewGuid().ToString(); 
+            try
+            {
+                TransacaoInfraService.RegistarTransacao(transacao);
 
-            Console.WriteLine("Oi EstadoIdentificado");
+                return Task.FromResult(200);
+            }
+            catch (Exception e)
+            {
+                return Task.FromResult(503);
+            }
+            
+            transacao.Estado = new EstadoProcessado();
 
-            return null;
+            return transacao.ExecutarOperacao();
         }
     }
 }

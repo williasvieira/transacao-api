@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\willi\\Desktop\\repositoriosGit\\transacaoApi\\transacaoApi\\transacaoApi.csproj": {}
+    "C:\\Users\\willi\\Desktop\\Projeto\\transacao-api\\transacaoApi\\transacaoApi\\transacaoApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\willi\\Desktop\\repositoriosGit\\transacaoApi\\Domain\\Domain.csproj": {
+    "C:\\Users\\willi\\Desktop\\Projeto\\transacao-api\\transacaoApi\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\willi\\Desktop\\repositoriosGit\\transacaoApi\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\willi\\Desktop\\Projeto\\transacao-api\\transacaoApi\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\willi\\Desktop\\repositoriosGit\\transacaoApi\\Domain\\Domain.csproj",
+        "projectPath": "C:\\Users\\willi\\Desktop\\Projeto\\transacao-api\\transacaoApi\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\willi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\willi\\Desktop\\repositoriosGit\\transacaoApi\\Domain\\obj\\",
+        "outputPath": "C:\\Users\\willi\\Desktop\\Projeto\\transacao-api\\transacaoApi\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\willi\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -65,14 +65,14 @@
         }
       }
     },
-    "C:\\Users\\willi\\Desktop\\repositoriosGit\\transacaoApi\\Infra\\Infra.csproj": {
+    "C:\\Users\\willi\\Desktop\\Projeto\\transacao-api\\transacaoApi\\Infra\\Infra.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\willi\\Desktop\\repositoriosGit\\transacaoApi\\Infra\\Infra.csproj",
+        "projectUniqueName": "C:\\Users\\willi\\Desktop\\Projeto\\transacao-api\\transacaoApi\\Infra\\Infra.csproj",
         "projectName": "Infra",
-        "projectPath": "C:\\Users\\willi\\Desktop\\repositoriosGit\\transacaoApi\\Infra\\Infra.csproj",
+        "projectPath": "C:\\Users\\willi\\Desktop\\Projeto\\transacao-api\\transacaoApi\\Infra\\Infra.csproj",
         "packagesPath": "C:\\Users\\willi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\willi\\Desktop\\repositoriosGit\\transacaoApi\\Infra\\obj\\",
+        "outputPath": "C:\\Users\\willi\\Desktop\\Projeto\\transacao-api\\transacaoApi\\Infra\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\willi\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -89,8 +89,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\willi\\Desktop\\repositoriosGit\\transacaoApi\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\willi\\Desktop\\repositoriosGit\\transacaoApi\\Domain\\Domain.csproj"
+              "C:\\Users\\willi\\Desktop\\Projeto\\transacao-api\\transacaoApi\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\willi\\Desktop\\Projeto\\transacao-api\\transacaoApi\\Domain\\Domain.csproj"
               }
             }
           }
@@ -134,14 +134,14 @@
         }
       }
     },
-    "C:\\Users\\willi\\Desktop\\repositoriosGit\\transacaoApi\\transacaoApi\\transacaoApi.csproj": {
+    "C:\\Users\\willi\\Desktop\\Projeto\\transacao-api\\transacaoApi\\transacaoApi\\transacaoApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\willi\\Desktop\\repositoriosGit\\transacaoApi\\transacaoApi\\transacaoApi.csproj",
+        "projectUniqueName": "C:\\Users\\willi\\Desktop\\Projeto\\transacao-api\\transacaoApi\\transacaoApi\\transacaoApi.csproj",
         "projectName": "transacaoApi",
-        "projectPath": "C:\\Users\\willi\\Desktop\\repositoriosGit\\transacaoApi\\transacaoApi\\transacaoApi.csproj",
+        "projectPath": "C:\\Users\\willi\\Desktop\\Projeto\\transacao-api\\transacaoApi\\transacaoApi\\transacaoApi.csproj",
         "packagesPath": "C:\\Users\\willi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\willi\\Desktop\\repositoriosGit\\transacaoApi\\transacaoApi\\obj\\",
+        "outputPath": "C:\\Users\\willi\\Desktop\\Projeto\\transacao-api\\transacaoApi\\transacaoApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\willi\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -158,11 +158,11 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\willi\\Desktop\\repositoriosGit\\transacaoApi\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\willi\\Desktop\\repositoriosGit\\transacaoApi\\Domain\\Domain.csproj"
+              "C:\\Users\\willi\\Desktop\\Projeto\\transacao-api\\transacaoApi\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\willi\\Desktop\\Projeto\\transacao-api\\transacaoApi\\Domain\\Domain.csproj"
               },
-              "C:\\Users\\willi\\Desktop\\repositoriosGit\\transacaoApi\\Infra\\Infra.csproj": {
-                "projectPath": "C:\\Users\\willi\\Desktop\\repositoriosGit\\transacaoApi\\Infra\\Infra.csproj"
+              "C:\\Users\\willi\\Desktop\\Projeto\\transacao-api\\transacaoApi\\Infra\\Infra.csproj": {
+                "projectPath": "C:\\Users\\willi\\Desktop\\Projeto\\transacao-api\\transacaoApi\\Infra\\Infra.csproj"
               }
             }
           }

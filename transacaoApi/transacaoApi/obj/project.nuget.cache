@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "qhxskwMHX7eVUVGE+mzIFwLKnGiaDu1yVBMykJuNRN8cLrMN6NBquGutuEDENJr4rQvHCHTAqkvbbR5MEkJe3A==",
+  "dgSpecHash": "n3Jugberx9dK8Ql2ReTzW/biMWwmJemIJEZSCjsfuZ7m0H835/myQs18hqYo8WwckPCJPueYk/RatusK0siV4w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\willi\\Desktop\\repositoriosGit\\transacaoApi\\transacaoApi\\transacaoApi.csproj",
+  "projectFilePath": "C:\\Users\\willi\\Desktop\\Projeto\\transacao-api\\transacaoApi\\transacaoApi\\transacaoApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\willi\\.nuget\\packages\\dnsclient\\1.6.1\\dnsclient.1.6.1.nupkg.sha512",
     "C:\\Users\\willi\\.nuget\\packages\\microsoft.bcl\\1.1.10\\microsoft.bcl.1.1.10.nupkg.sha512",

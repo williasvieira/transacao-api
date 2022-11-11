@@ -1653,11 +1653,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\willi\\Desktop\\repositoriosGit\\transacaoApi\\transacaoApi\\transacaoApi.csproj",
+      "projectUniqueName": "C:\\Users\\willi\\Desktop\\Projeto\\transacao-api\\transacaoApi\\transacaoApi\\transacaoApi.csproj",
       "projectName": "transacaoApi",
-      "projectPath": "C:\\Users\\willi\\Desktop\\repositoriosGit\\transacaoApi\\transacaoApi\\transacaoApi.csproj",
+      "projectPath": "C:\\Users\\willi\\Desktop\\Projeto\\transacao-api\\transacaoApi\\transacaoApi\\transacaoApi.csproj",
       "packagesPath": "C:\\Users\\willi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\willi\\Desktop\\repositoriosGit\\transacaoApi\\transacaoApi\\obj\\",
+      "outputPath": "C:\\Users\\willi\\Desktop\\Projeto\\transacao-api\\transacaoApi\\transacaoApi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\willi\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -1674,11 +1674,11 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\willi\\Desktop\\repositoriosGit\\transacaoApi\\Domain\\Domain.csproj": {
-              "projectPath": "C:\\Users\\willi\\Desktop\\repositoriosGit\\transacaoApi\\Domain\\Domain.csproj"
+            "C:\\Users\\willi\\Desktop\\Projeto\\transacao-api\\transacaoApi\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Users\\willi\\Desktop\\Projeto\\transacao-api\\transacaoApi\\Domain\\Domain.csproj"
             },
-            "C:\\Users\\willi\\Desktop\\repositoriosGit\\transacaoApi\\Infra\\Infra.csproj": {
-              "projectPath": "C:\\Users\\willi\\Desktop\\repositoriosGit\\transacaoApi\\Infra\\Infra.csproj"
+            "C:\\Users\\willi\\Desktop\\Projeto\\transacao-api\\transacaoApi\\Infra\\Infra.csproj": {
+              "projectPath": "C:\\Users\\willi\\Desktop\\Projeto\\transacao-api\\transacaoApi\\Infra\\Infra.csproj"
             }
           }
         }

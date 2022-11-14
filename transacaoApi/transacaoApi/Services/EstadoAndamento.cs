@@ -12,12 +12,10 @@ namespace transacaoApi.Services
     public class EstadoAndamento : IEstadosTransacao
     {
         private readonly TransacaoMongoService TransacaoInfraService = new TransacaoMongoService();
-
+        private readonly SaldoRedisService  SaldoRedisService = new SaldoRedisService();
         public async Task<int> ExecutarOperacao(Transacao transacao)
         {
-            //var usarioValido = await Task.FromResult(casss.BuscarUsario(transacao.IdUsuario));
-
-            var usuarioValido = await Task.FromResult(true);
+            var usuarioValido = SaldoRedisService.BuscarUsuario(transacao.IdUsuario);
 
             if (!usuarioValido)
             {

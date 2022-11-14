@@ -23,23 +23,23 @@ namespace Infra.Services
         }
         
 
-        public async Task<Usuario> Add(Usuario usuario)
+  
+        public void AtualizarConta(Usuario usuario)
         {
-           
-
             Redis.Set<Usuario>(usuario.IdUsuario, usuario);
-            return usuario;
+           
         }
-
-        public Task<Usuario> AtualizarConta(Usuario usuario)
-        {
-            throw new NotImplementedException();
-        }
-        public Task<Usuario> getSaldo(string IdUsuario)
+        public Task<Usuario> GetSaldo(string IdUsuario)
         {
             var client= Redis.Get<Usuario>(IdUsuario);
 
             return Task.FromResult(client);
+        }
+        public bool BuscarUsuario(string IdUsuario)
+        {
+            var client = Redis.Get<Usuario>(IdUsuario);
+
+            return client != null ? true : false;
         }
     }
 }

@@ -38,10 +38,7 @@ namespace SaldoApi
             {
                 c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "Meu Swagger", Version = "v1" });
             });
-            services.AddStackExchangeRedisCache(opt =>
-            {
-                opt.Configuration = Configuration.GetValue<string>("CacheSettings:ConnectionString");
-            });
+           
             services.AddTransient<ISaldoService, SaldoService>();
             services.AddTransient<ISaldoCacheService, SaldoRedisService>();
             services.AddSingleton<ITransacaoInfraService, TransacaoMongoService>();

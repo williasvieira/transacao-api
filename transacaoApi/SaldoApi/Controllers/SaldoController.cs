@@ -12,43 +12,23 @@ namespace SaldoApi.Controllers
     [Route("[controller]")]
     public class SaldoController : Controller
     {
-        private readonly ITransacaoInfraService TransacaoInfraService;
+        
         private readonly ISaldoService SaldoService;
         private readonly ISaldoCacheService SaldoCacheService;
-        public SaldoController(ISaldoService saldoService, ITransacaoInfraService transacaoInfraService, ISaldoCacheService saldoCacheService)
+        public SaldoController(ISaldoService saldoService, ISaldoCacheService saldoCacheService)
         {
             SaldoService = saldoService;
-            TransacaoInfraService = transacaoInfraService;
+           
             SaldoCacheService = saldoCacheService;
         }
 
-        [HttpPost("Saldo")]
+        [HttpGet("{id}")]
         public IActionResult Saldo(string idUsuario)
         {
             var saldo = SaldoService.EfetuarSaldo(idUsuario).Result;
             return Ok(saldo);
 
         }
-        [HttpPost("Create")]
-        public IActionResult Post([FromBody] Usuario usuario)
-        {
-            SaldoCacheService.Add(usuario);
-            return Created("", usuario);
-        }
-        [HttpGet("{id}")]
-        public IActionResult Get(string id)
-        {
-            var cliente = SaldoCacheService.getSaldo(id);
-            return Ok(cliente);
-        }
-        //public IActionResult PostTransacao([FromBody] TransacaoDto transacaoDto)
-        //{
-        //    Transacao trasacao = new Transacao(transacaoDto.IdUsuario, transacaoDto.Valor);
-        //     TransacaoInfraService.RegistarTransacao(trasacao);
-
-        //    return Created("", trasacao);
-
-
-        //}
+       
     }
 }

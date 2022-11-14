@@ -1,3 +1,6 @@
+using Infra.DataCollections;
+using Infra.Interfaces;
+using Infra.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -5,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using SaldoApi.Interfaces;
 using SaldoApi.Services;
 using System;
@@ -27,11 +31,21 @@ namespace SaldoApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMemoryCache();
+
+            services.Configure<TransacaoDatabaseSettings>(Configuration.GetSection(nameof(TransacaoDatabaseSettings)));
+            services.AddSingleton<ITransacaoDatabaseSettings>(sp => sp.GetRequiredService<IOptions<TransacaoDatabaseSettings>>().Value);
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "Meu Swagger", Version = "v1" });
             });
+            services.AddStackExchangeRedisCache(opt =>
+            {
+                opt.Configuration = Configuration.GetValue<string>("CacheSettings:ConnectionString");
+            });
             services.AddTransient<ISaldoService, SaldoService>();
+            services.AddTransient<ISaldoCacheService, SaldoRedisService>();
+            services.AddSingleton<ITransacaoInfraService, TransacaoMongoService>();
+           
             services.AddControllers();
         }
 

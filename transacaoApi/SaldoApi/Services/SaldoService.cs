@@ -2,36 +2,34 @@
 using SaldoApi.Interfaces;
 using System.Threading.Tasks;
 using System;
+using Infra.Interfaces;
 
 namespace SaldoApi.Services
 {
     public class SaldoService : ISaldoService
     {
+        private readonly ITransacaoInfraService TransacaoInfraService;
         private readonly IMemoryCache MemoryCache;
-        private const string USUARIO_KEY = "USER";
-        public SaldoService(IMemoryCache memoryCache)
+       
+        public SaldoService(IMemoryCache memoryCache, ITransacaoInfraService transacaoInfraService)
         {
             MemoryCache = memoryCache;
+            TransacaoInfraService = transacaoInfraService;  
         }
 
-        public Task<int> EfetuarSaldo(int idUsuario)
+        public Task<double> EfetuarSaldo(string idUsuario)
         {
-            Console.WriteLine(USUARIO_KEY + idUsuario);
-            var s = USUARIO_KEY + idUsuario;
-            if (MemoryCache.TryGetValue(USUARIO_KEY + idUsuario, out int saldo))
-            {
-                return Task.FromResult(saldo);
-            }
+           
+            
+  
+              var valor =  SaldoRecargaCompleta(idUsuario);
+            return Task.FromResult(valor).Result;
+        }
+        private Task<double> SaldoRecargaCompleta(string id)
+        {
+          return  Task.FromResult(TransacaoInfraService.SaldoRecargaCompletaAsync(id)).Result;
 
-            //var saldo = MemoryCache.GetOrCreate(USUARIO_KEY + idUsuario, entry =>
-            //{
-            //    entry.SlidingExpiration = TimeSpan.FromMinutes(2);
-            //    entry.AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(5);
-            //    entry,
-
-            //});
-
-            return Task.FromResult(5);
+            
         }
     }
 }

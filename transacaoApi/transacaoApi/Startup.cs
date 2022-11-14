@@ -37,8 +37,7 @@ namespace transacaoApi
 
             services.AddTransient<ITransacaoService, TransacaoService>();
             services.AddTransient<ITransacaoInfraService, TransacaoMongoService>();
-            services.Configure<TransacaoDatabaseSettings>
-                (Configuration.GetSection("TransacaoDatabase"));
+           
             services.AddSingleton<TransacaoMongoService>();
         }
 

@@ -1,10 +1,14 @@
-﻿using System;
+﻿using Domain.Models;
+using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Infra.Interfaces
 {
-    internal interface ISaldoCacheService
+    public interface ISaldoCacheService
     {
+        Task<Usuario> AtualizarConta(Usuario usuario);
+        Task<Usuario> Add(Usuario usuario);
     }
 }

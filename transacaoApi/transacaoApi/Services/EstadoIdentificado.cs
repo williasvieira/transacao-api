@@ -13,25 +13,20 @@ namespace transacaoApi.Services
     {
         private readonly TransacaoMongoService TransacaoInfraService = new TransacaoMongoService();
 
-       
-
-        public Task<int> ExecutarOperacao(Transacao transacao)
+        public async Task<int> ExecutarOperacao(Transacao transacao)
         {
-            transacao.IdTransacao = Guid.NewGuid().ToString(); 
             try
             {
-                TransacaoInfraService.RegistarTransacao(transacao);
-
-                return Task.FromResult(200);
+                await TransacaoInfraService.RegistarTransacaoAsync(transacao);
             }
             catch (Exception e)
             {
-                return Task.FromResult(503);
+                return 503;
             }
-            
+
             transacao.Estado = new EstadoProcessado();
 
-            return transacao.ExecutarOperacao();
+            return transacao.ExecutarOperacao().Result;
         }
     }
 }

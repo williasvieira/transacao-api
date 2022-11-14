@@ -1,6 +1,7 @@
 ﻿
 using Domain.Models;
 using Domain.StateClasses;
+using Infra.Services;
 using System;
 using System.Threading.Tasks;
 using transacaoApi.Interfaces;
@@ -10,12 +11,12 @@ namespace transacaoApi.Services
 {
     public class EstadoAndamento : IEstadosTransacao
     {
+        private readonly TransacaoMongoService TransacaoInfraService = new TransacaoMongoService();
+
         public async Task<int> ExecutarOperacao(Transacao transacao)
         {
-            Console.WriteLine("OI EstadoAndamento");
             //var usarioValido = await Task.FromResult(casss.BuscarUsario(transacao.IdUsuario));
 
-            //Aqui vai ter que ter um trycatch...
             var usuarioValido = await Task.FromResult(true);
 
             if (!usuarioValido)
@@ -25,11 +26,18 @@ namespace transacaoApi.Services
 
             if (transacao.IdTransacaoRelacionada != null)
             {
-                //Aqui também teria que ter um trycatch...
-                //Obter o valor da transacao original para inverter o valor
+                try
+                {
+                    var valorDaTransacao = await TransacaoInfraService.GetValorTransacao(transacao.IdTransacaoRelacionada.Value);
+                    transacao.Valor = (valorDaTransacao * -1);
+                }
+                catch
+                {
+                    return 503;
+                }
             }
 
-            
+
             transacao.Estado = new EstadoIdentificado();
 
             return transacao.ExecutarOperacao().Result;

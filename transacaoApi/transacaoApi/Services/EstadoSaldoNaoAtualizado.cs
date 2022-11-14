@@ -18,11 +18,13 @@ namespace transacaoApi.Services
         {
             try
             {
-                retryPolicy.ExecuteAsync(() => Task.FromResult(true));
+                //Aqui vai o redis, pra tentar salvar na cache
+                retryPolicy.ExecuteAsync(() => Task.FromResult(false));
             }
             catch (Exception e)
             {
                 var transacaoDesfazimento = new Transacao(transacao.IdUsuario, transacao.IdTransacao);
+                transacaoDesfazimento.Estado = new EstadoAndamento();
                 return transacaoDesfazimento.ExecutarOperacao();
             }
 

@@ -4,6 +4,6 @@ namespace SaldoApi.Interfaces
 {
     public interface ISaldoService
     {
-        public Task<int> EfetuarSaldo(int idUsuario);
+        public Task<double> EfetuarSaldo(string idUsuario);
     }
 }

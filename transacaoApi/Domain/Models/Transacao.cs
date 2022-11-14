@@ -9,44 +9,44 @@ using System.Threading.Tasks;
 
 namespace Domain.Models
 {
+    [BsonIgnoreExtraElements]
     public class Transacao
     {
-        public IEstadosTransacao Estado { get; set; }
 
-        [BsonElement("IdTransacao")]
-        public string IdTransacao { get; set; }
+        [BsonId]
+        public ObjectId IdTransacao { get; set; }
 
         [BsonElement("idUsario")]
-        public int IdUsuario { get; set; }
+        public string IdUsuario { get; set; }
 
         [BsonElement("valor")]
         public double Valor { get; set; }
 
         [BsonElement("idTransacaoRelacionada")]
-        public string IdTransacaoRelacionada { get; set; }
+        public ObjectId? IdTransacaoRelacionada { get; set; }
 
-        public Transacao(IEstadosTransacao estado, int idUsuario, double valor, string idTransacao, string idTransacaoRelacionada)
-        {
-            Estado = estado;
-            IdUsuario = idUsuario;
-            Valor = valor;
-            IdTransacao = idTransacao;
-            IdTransacaoRelacionada = idTransacaoRelacionada;
-        }
-
-        public Transacao(int idUsuario, double valor )
+        [BsonIgnore]
+        public IEstadosTransacao Estado { get; set; }
+        public Transacao(string idUsuario, double valor)
         {
             IdUsuario = idUsuario;
             Valor = valor;
         }
-        public Transacao(int idUsuario, string idTransacao)
+
+        public Transacao(string idUsuario)
         {
             IdUsuario = idUsuario;
-            IdTransacaoRelacionada = idTransacao;
         }
+
+        public Transacao(string idUsuario, ObjectId transacaoRelacionada)
+        {
+            IdUsuario = idUsuario;
+            IdTransacaoRelacionada = transacaoRelacionada;
+        }
+
         public Task<int> ExecutarOperacao()
         {
-            return  Estado.ExecutarOperacao(this);
+            return Estado.ExecutarOperacao(this);
 
         }
     }

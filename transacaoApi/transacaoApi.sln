@@ -9,11 +9,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "transacaoApi", "transacaoAp
 		{E30BE971-93CD-495D-9335-A0AB5258FD9E} = {E30BE971-93CD-495D-9335-A0AB5258FD9E}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infra", "Infra\Infra.csproj", "{E30BE971-93CD-495D-9335-A0AB5258FD9E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infra", "Infra\Infra.csproj", "{E30BE971-93CD-495D-9335-A0AB5258FD9E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "saldo-api", "..\..\..\source\repos\saldo-api\saldo-api\saldo-api.csproj", "{2B9947F7-9159-464F-BB62-B0C316EAD237}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{AC5A1EF3-F4C6-47BA-BF31-4A53D5011708}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{AC5A1EF3-F4C6-47BA-BF31-4A53D5011708}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "saldoApi", "SaldoApi\saldoApi.csproj", "{6A0F5FB9-3239-4DD4-A965-A85CDC265728}"
+	ProjectSection(ProjectDependencies) = postProject
+		{AC5A1EF3-F4C6-47BA-BF31-4A53D5011708} = {AC5A1EF3-F4C6-47BA-BF31-4A53D5011708}
+		{E30BE971-93CD-495D-9335-A0AB5258FD9E} = {E30BE971-93CD-495D-9335-A0AB5258FD9E}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,14 +33,14 @@ Global
 		{E30BE971-93CD-495D-9335-A0AB5258FD9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E30BE971-93CD-495D-9335-A0AB5258FD9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E30BE971-93CD-495D-9335-A0AB5258FD9E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2B9947F7-9159-464F-BB62-B0C316EAD237}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2B9947F7-9159-464F-BB62-B0C316EAD237}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2B9947F7-9159-464F-BB62-B0C316EAD237}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2B9947F7-9159-464F-BB62-B0C316EAD237}.Release|Any CPU.Build.0 = Release|Any CPU
 		{AC5A1EF3-F4C6-47BA-BF31-4A53D5011708}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{AC5A1EF3-F4C6-47BA-BF31-4A53D5011708}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC5A1EF3-F4C6-47BA-BF31-4A53D5011708}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AC5A1EF3-F4C6-47BA-BF31-4A53D5011708}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A0F5FB9-3239-4DD4-A965-A85CDC265728}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A0F5FB9-3239-4DD4-A965-A85CDC265728}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A0F5FB9-3239-4DD4-A965-A85CDC265728}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A0F5FB9-3239-4DD4-A965-A85CDC265728}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,4 +1,5 @@
 ﻿using Domain.Models;
+using MongoDB.Bson;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,10 +9,10 @@ namespace Infra.Interfaces
 {
     public interface ITransacaoInfraService
     {
-        public void RegistarTransacao(Transacao transacao);
-        public double GetValorTransacao(string idTransacao);
+        public Task RegistarTransacaoAsync(Transacao transacao);
+        public Task<double> GetValorTransacao(ObjectId idTransacao);
 
-        public double SaldoRecargaCompleta(int idUsuario);
+        public Task<double> SaldoRecargaCompletaAsync(string idUsuario);
 
     }
 }

@@ -116,6 +116,10 @@
             "MongoDB.Driver": {
               "target": "Package",
               "version": "[2.18.0, )"
+            },
+            "ServiceStack.Redis": {
+              "target": "Package",
+              "version": "[6.4.0, )"
             }
           },
           "imports": [

@@ -35,6 +35,12 @@ namespace SaldoApi.Controllers
             SaldoCacheService.Add(usuario);
             return Created("", usuario);
         }
+        [HttpGet("{id}")]
+        public IActionResult Get(string id)
+        {
+            var cliente = SaldoCacheService.getSaldo(id);
+            return Ok(cliente);
+        }
         //public IActionResult PostTransacao([FromBody] TransacaoDto transacaoDto)
         //{
         //    Transacao trasacao = new Transacao(transacaoDto.IdUsuario, transacaoDto.Valor);

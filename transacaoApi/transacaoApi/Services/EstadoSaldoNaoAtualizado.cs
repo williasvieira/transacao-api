@@ -1,5 +1,6 @@
 ﻿using Domain.Models;
 using Domain.StateClasses;
+using Infra.Services;
 using Polly;
 using System;
 using System.Threading.Tasks;
@@ -13,12 +14,16 @@ namespace transacaoApi.Services
         private readonly IAsyncPolicy retryPolicy =
             Policy.Handle<Exception>()
             .WaitAndRetryAsync(3, i => TimeSpan.FromSeconds(i * 2));
-
-        public Task<int> ExecutarOperacao(Transacao transacao)
+        
+        private readonly SaldoRedisService SaldoRedisService= new SaldoRedisService();
+        public  Task<int> ExecutarOperacao(Transacao transacao)
         {
             try
             {
-                //Aqui vai o redis, pra tentar salvar na cache
+                Usuario usuario = new Usuario(transacao.IdUsuario, transacao.Valor);
+
+                SaldoRedisService.AtualizarConta(usuario);
+
                 retryPolicy.ExecuteAsync(() => Task.FromResult(false));
             }
             catch (Exception e)

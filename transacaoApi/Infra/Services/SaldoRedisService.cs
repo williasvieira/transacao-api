@@ -1,6 +1,8 @@
 ﻿using Domain.Models;
 using Infra.Interfaces;
 using Microsoft.Extensions.Caching.Distributed;
+using Microsoft.Extensions.DependencyInjection;
+using ServiceStack.Redis;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,23 +13,33 @@ namespace Infra.Services
 {
     public class SaldoRedisService : ISaldoCacheService
     {
-        private readonly IDistributedCache Redis;
+        private string host = "localhost:6379";
+        
+        private readonly RedisClient Redis;
 
-        public SaldoRedisService(IDistributedCache redis)
+        public SaldoRedisService()
         {
-            Redis = redis;
+            Redis = new RedisClient(host);
         }
+        
 
         public async Task<Usuario> Add(Usuario usuario)
         {
-            
-            await Redis.SetStringAsync(usuario.IdUsuario.ToString(), JsonSerializer.Serialize(usuario));
+           
+
+            Redis.Set<Usuario>(usuario.IdUsuario, usuario);
             return usuario;
         }
 
         public Task<Usuario> AtualizarConta(Usuario usuario)
         {
             throw new NotImplementedException();
+        }
+        public Task<Usuario> getSaldo(string IdUsuario)
+        {
+            var client= Redis.Get<Usuario>(IdUsuario);
+
+            return Task.FromResult(client);
         }
     }
 }

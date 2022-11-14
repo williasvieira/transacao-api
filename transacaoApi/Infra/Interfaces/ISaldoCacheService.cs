@@ -8,7 +8,8 @@ namespace Infra.Interfaces
 {
     public interface ISaldoCacheService
     {
-        Task<Usuario> AtualizarConta(Usuario usuario);
-        Task<Usuario> Add(Usuario usuario);
+        public Task<Usuario> AtualizarConta(Usuario usuario);
+        public Task<Usuario> Add(Usuario usuario);
+        public Task<Usuario> getSaldo(string usuario);
     }
 }

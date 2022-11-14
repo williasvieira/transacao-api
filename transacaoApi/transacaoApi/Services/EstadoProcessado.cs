@@ -11,7 +11,7 @@ namespace transacaoApi.Services
     public class EstadoProcessado : IEstadosTransacao
     {
         private readonly TransacaoMongoService TransacaoInfraService = new TransacaoMongoService();
-
+        private readonly SaldoRedisService SaldoRedisService = new SaldoRedisService();
         public async Task<int> ExecutarOperacao(Transacao transacao)
         {
 
@@ -20,8 +20,9 @@ namespace transacaoApi.Services
                 var saldoAtualizado = await TransacaoInfraService.SaldoRecargaCompletaAsync(transacao.IdUsuario);
                 try
                 {
-                    //Aqui voce coloca o redis pra salvar na cache. Se der exceção, ele vai pro
-                    // estado de não atualizado
+                    Usuario usuario = new Usuario(transacao.IdUsuario, transacao.Valor);
+
+                    SaldoRedisService.AtualizarConta(usuario);
                 }
                 catch
                 {
